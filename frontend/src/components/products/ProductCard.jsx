@@ -6,6 +6,7 @@ export default function ProductCard({ product, onAdd }) {
         <small>{product.category}</small>
         <h3>{product.name}</h3>
         <p>{product.description}</p>
+        {product.preparationPhotos?.length > 0 && <div className="product-process-photos" aria-label="Fotografije pripreme">{product.preparationPhotos.slice(0, 3).map((photo, index) => <figure key={`${photo.url}-${index}`}><img src={photo.url} alt={photo.caption || `Korak pripreme ${index + 1}`} loading="lazy" />{photo.caption && <figcaption>{photo.caption}</figcaption>}</figure>)}</div>}
         <div className="product-bottom">
           <strong>{product.price.toFixed(2).replace('.', ',')} €</strong>
           <button onClick={() => onAdd(product)}>Dodaj</button>
