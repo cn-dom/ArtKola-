@@ -1,7 +1,7 @@
 export default function ProductCard({ product, onAdd }) {
   return (
     <article className="product">
-      <div className="product-image"><span>ArtKolač</span></div>
+      <div className="product-image" style={product.imageUrl ? { backgroundImage: `linear-gradient(180deg, transparent 45%, rgba(45,30,25,.3)), url("${product.imageUrl}")` } : undefined} role="img" aria-label={product.name}><span>{product.imageUrl ? "" : "ArtKolač"}</span></div>
       <div className="product-body">
         <small>{product.category}</small>
         <h3>{product.name}</h3>
